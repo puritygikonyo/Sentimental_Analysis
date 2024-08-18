@@ -1,11 +1,7 @@
-from google.colab import drive
 import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-
-# Mount Google Drive
-drive.mount('/content/drive')
 
 # Path to the model file in Google Drive
 filename = '/sentimental_analysis.pkl'
