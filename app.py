@@ -2,13 +2,15 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-
-# Path to the model file in Google Drive
+#load in the model
 filename = 'sentimental_analysis.pkl'
+loaded_model = pickle.load(open(filename, 'rb'))
 
-# Load the model
-with open(filename, 'rb') as model_file:
-    loaded_model = pickle.load(model_file)
+
+#build a simple streamlit app
+st.set_page_config(layout="wide")
+st.header('Review Predictor App')
+
 # Custom HTML/CSS for the banner
 custom_html = """
 <div class="banner">
