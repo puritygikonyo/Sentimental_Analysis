@@ -4,7 +4,7 @@ import streamlit as st
 import pickle
 
 # Path to the model file in Google Drive
-filename = '/sentimental_analysis.pkl'
+filename = 'sentimental_analysis.pkl'
 
 # Load the model
 with open(filename, 'rb') as model_file:
