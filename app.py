@@ -1,15 +1,30 @@
-# Commented out IPython magic to ensure Python compatibility.
-
 import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import string
 
-#Path to the model file 
+# Optional preprocessing function
+def preprocess_text(text):
+    # Implement your text preprocessing here
+    # For example, lowercasing and removing punctuation
+    nltk.download('punkt')
+    nltk.download('stopwords')
+
+    stop_words = set(stopwords.words('english'))
+    tokens = word_tokenize(text)
+    tokens = [word.lower() for word in tokens if word.isalnum()]
+    tokens = [word for word in tokens if word not in stop_words]
+    return ' '.join(tokens)
+
+# Path to the model file 
 filename = "sentimental_analysis.pkl"
 loaded_model = pickle.load(open(filename, 'rb'))
 
-#build a simple streamlit app
+# Build a simple Streamlit app
 st.set_page_config(layout="wide")
 st.header('Review Predictor App')
 
@@ -56,21 +71,3 @@ if st.button("Predict"):
 # Custom thank you message and GIF
 st.write('Thank you for using our app!')
 st.markdown("![Thank You](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)")
-
-# Optional preprocessing function
-def preprocess_text(text):
-    # Implement your text preprocessing here
-    # For example, lowercasing and removing punctuation
-    import nltk
-    from nltk.corpus import stopwords
-    from nltk.tokenize import word_tokenize
-    import string
-
-    nltk.download('punkt')
-    nltk.download('stopwords')
-
-    stop_words = set(stopwords.words('english'))
-    tokens = word_tokenize(text)
-    tokens = [word.lower() for word in tokens if word.isalnum()]
-    tokens = [word for word in tokens if word not in stop_words]
-    return ' '.join(tokens)
