@@ -1,15 +1,10 @@
-!pip install pandas
-!pip install numpy
-!pip install streamlit
-!pip install pickle5
-!pip install nltk
 
 # Commented out IPython magic to ensure Python compatibility.
 
 import pandas as pd
 import numpy as np
 import streamlit as st
-import pickle5 as pickle
+import pickle-mixin as pickle
 
 #Path to the model file 
 filename = "sentimental_analysis.sav"
