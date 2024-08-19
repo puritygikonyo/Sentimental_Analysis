@@ -3,6 +3,8 @@ import numpy as np
 import streamlit as st
 import pickle
 import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
@@ -11,8 +13,6 @@ import string
 def preprocess_text(text):
     # Implement your text preprocessing here
     # For example, lowercasing and removing punctuation
-    nltk.download('punkt')
-    nltk.download('stopwords')
 
     stop_words = set(stopwords.words('english'))
     tokens = word_tokenize(text)
