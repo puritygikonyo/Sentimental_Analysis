@@ -1,12 +1,16 @@
+# Commented out IPython magic to ensure Python compatibility.
+
 import pandas as pd
 import numpy as np
 import streamlit as st
 import pickle
-#load in the model
-filename = 'sentimental_analysis.pkl'
-loaded_model = pickle.load(open(filename, 'rb'))
 
+#Path to the model file 
+filename = "sentimental_analysis.sav"
 
+# Load the model
+with open(filename, 'rb') as model_file:
+    loaded_model = pickle.load(model_file)
 #build a simple streamlit app
 st.set_page_config(layout="wide")
 st.header('Review Predictor App')
@@ -72,5 +76,6 @@ def preprocess_text(text):
     tokens = [word.lower() for word in tokens if word.isalnum()]
     tokens = [word for word in tokens if word not in stop_words]
     return ' '.join(tokens)
+
 
 
