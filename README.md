@@ -26,6 +26,7 @@ This Streamlit app, **Text Pred**, provides a user-friendly interface for perfor
 - The app will display a preview of the uploaded data.
 - Once processed, the sentiment analysis results will be displayed.
 - You can download the updated Excel file with the new `Sentiment` column by clicking the **Download Excel with Sentiment** button.
+## 3. Section showing visuals giving an overview of the analysis of the batch excel file uploaded
 
 ## Prerequisites
 
